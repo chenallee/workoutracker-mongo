@@ -35,13 +35,29 @@ app.get("/exercise", (req, res) => {
 
 // GET / find - get last workout
 // find({}).sort({date: -1}).limit(1)
-
+app.get("/api/workouts",(req, res) => {
+  Workout.find({}, (err, lastWorkoutData) => {
+    if (err){
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    res.json(lastWorkoutData);
+  })
+})
 // PUT / update - add exercise to last workout
 
 // POST / create - create new workout
 
 // GET /find - get all workouts
-
+app.get("/api/workouts/range",(req, res) => {
+  Workout.find({}, (err, lastWorkoutData) => {
+    if (err){
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    res.json(lastWorkoutData);
+  })
+})
 
 // Start the server
 app.listen(PORT, () => {
