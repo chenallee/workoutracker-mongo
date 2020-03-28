@@ -5,7 +5,7 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
-const Workout = require("./workoutModel.js");
+const Workout = require("./models/workoutModel");
 
 const app = express();
 
@@ -16,9 +16,31 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-
-
 mongoose.connect(process.env.MONGOD_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+
+// ROUTES
+
+// HTML ROUTES
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/index.html'))
+}) //is this necessary
+
+app.get("/stats", (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/stats.html'))
+})
+
+app.get("/exercise", (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/exercise.html'))
+})
+
+// GET / find - get last workout
+// find({}).sort({date: -1}).limit(1)
+
+// PUT / update - add exercise to last workout
+
+// POST / create - create new workout
+
+// GET /find - get all workouts
 
 
 // Start the server
