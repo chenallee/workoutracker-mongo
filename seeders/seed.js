@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let db = require("../models/workoutModel");
+let db = require("../models");
 
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
@@ -129,7 +129,9 @@ let workoutSeed = [
         type: "resistance",
         name: "Bench",
         duration: 30,
-        distance: 2
+        weight: 300,
+        reps: 10,
+        sets: 4
       }
     ]
   }
