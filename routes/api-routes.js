@@ -36,15 +36,19 @@ router.post('/workouts', (req, res) => {
   })
 });
 
-// GET /find - get all workouts
+// GET /find - get workouts
 router.get('/workouts/range', (req, res) => {
-  db.Workout.find({}, (err, lastWorkoutData) => {
+  db.Workout.find().sort({day: -1}).limit(7)
+  .then(WorkoutData => {
+    console.log(WorkoutData);
+    return res.json(WorkoutData);
+  })
+  .catch(err => {
     if (err){
       console.log(err);
-      return res.status(400).json(err);
+      return res.status(500).json(err);
     }
-    res.json(lastWorkoutData);
   })
-})
+});
 
 module.exports = router;
