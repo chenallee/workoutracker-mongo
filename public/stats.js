@@ -217,7 +217,9 @@ function calculateTotalWeight(data) {
   let total = [];
   console.log(data);
   data.forEach(workout => {
-    total.push(workout.exercises.reduce((totalCount, { weight }) => totalCount + weight, 0));
+    if (workout.weight) {
+      total.push(workout.exercises.reduce((totalCount, { weight }) => totalCount + weight, 0));
+    }
   });
   console.log(total);
   return total;
