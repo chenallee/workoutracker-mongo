@@ -14,7 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGOD_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGOD_URI || "mongodb://localhost/workout", { 
+  useFindAndModify: true,
+  useNewUrlParser: true });
 
 // turn on routes
 app.use(routes);
