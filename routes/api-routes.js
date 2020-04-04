@@ -40,7 +40,7 @@ router.post('/workouts', (req, res) => {
 router.get('/workouts/range', (req, res) => {
   db.Workout.find().sort({day: -1}).limit(7)
   .then(WorkoutData => {
-    console.log(WorkoutData);
+    //console.log(WorkoutData);
     return res.json(WorkoutData);
   })
   .catch(err => {
