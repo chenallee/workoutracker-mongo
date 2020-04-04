@@ -1,7 +1,7 @@
 # workoutracker-mongo
 ## description
 The app stores the user's daily workouts. On the landing page the user can choose to add more exercises to their most recent workout or to create a new workout for the day and populate it with exercises. There is a stats page that returns data of the user's last 7 days of workouts.
-Test the deployed version [here](https://sheltered-everglades-15164.herokuapp.com/?id=5e8697fe13f446022cc78113).
+Test the deployed version [here](https://sheltered-everglades-15164.herokuapp.com).
 
 ## installation
 The app is deployed on heroku, so there's nothing to install. It should also already have some seeded data so the stats route works right away.
